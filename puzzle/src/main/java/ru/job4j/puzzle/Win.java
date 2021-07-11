@@ -2,17 +2,11 @@ package ru.job4j.puzzle;
 
 public class Win {
     public static boolean check(int[][] board) {
-        boolean rsl = true;
+        boolean rsl = false;
 
         for (int i = 0; i < board.length; i++) {
-            if ((board[0][0] == 1) && (checkHorizontal(board, i) || checkVertical(board, i))) {
+            if ((board[i][i] == 1) && (checkHorizontal(board, i) || checkVertical(board, i))) {
                 rsl = true;
-                break;
-            } else if (board[0][i] == 1) {
-                rsl = checkVertical(board, i);
-                break;
-            } else if (board[i][0] == 1) {
-                rsl = checkHorizontal(board, i);
                 break;
             }
         }
